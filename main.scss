@@ -1,0 +1,103 @@
+ @import './layout/global-rules';
+
+h1{
+   font-family:  'Courier New', monospace;
+   font-size: 5.4rem;
+   font-weight: bold;
+   color: brown;
+   text-shadow: 0.2rem 0.4rem  rgb(111, 42, 42);
+   margin-bottom: 5rem;
+}
+@mixin center-items{
+   justify-content: center;
+   align-items: center;
+
+}
+// i {
+//    color: rgb(188, 26, 26);
+//    font-size: large;
+
+// }
+
+.container{
+
+   @include center-items;
+   background-color: rgb(238, 190, 190);
+   width: 100vw;
+   height: 100vh;
+   display: flex;
+   max-width: 80rem;
+   margin: 0 auto;
+   padding: 8rem;
+}
+.flex-center{
+   @include center-items;
+   background-color:rgb(238, 190, 190);
+   box-shadow: 0 0.4rem 1.4rem 0 brown;
+   padding: 50px;
+
+
+}
+.flex-column{
+   display: flex;
+   flex-direction: column;
+}
+.btn{
+   font-size: 1.8rem;
+   padding: 1rem;
+   width: 20rem;
+   text-align: center;
+   border: 0.2rem solid brown;
+   text-decoration: none;
+   color: brown;
+   background-color: white;
+   margin-bottom: 0.5rem;
+   border-radius: 1rem;
+}
+.btn:hover{
+   box-shadow: 0 0.4rem 1.4rem 0 brown;
+   transform: translateY(-0.1rem);
+   transition: transform 150ms;
+
+}
+
+//game page
+
+// .container2{
+//    display: flex;
+//    @include center-items;
+//    width: 100vw;
+//    height: 100vh;
+   
+// }
+h2{
+  
+   margin-bottom: 1rem;
+}
+
+.display-flex{
+   display: flex;
+   background-color: white;
+   border: 1px solid brown;
+   margin-bottom: 1rem;
+   padding: 1rem;
+   border-radius: 1rem;
+   .A{
+      font-weight: bold;
+      color: brown;
+      font-size: larger;
+   }
+   
+   p{
+      margin-left: 1rem;
+   }
+}
+
+.display-flex:hover{
+   box-shadow: 0 0.4rem 1.4rem 0 brown;
+   transform: translateY(-0.1rem);
+   transition: transform 150ms;
+   
+
+}
+
