@@ -27,7 +27,7 @@ let questions = [
 
     },
     {
-        choix0 :" Which AWS offering enables users to find, buy, and immediately start using software solutions in their AWS environment?", 
+        choix0 :"Which AWS offering enables users to find, buy, and immediately start using software solutions in their AWS environment?", 
         choix1 :"AWS Config",    
         choix2 :"AWS OpsWorks", 
         choix3 :"AWS SDK", 
@@ -39,15 +39,38 @@ let questions = [
 
 ]
 
-const questionIndex = Math.floor(Math.random() * questions.length);
+var questionIndex = Math.floor(Math.random() * questions.length);
+console.log(questionIndex);
 
 
 
+function showQuestion(){
+    
+    
 
-
-for(let i=0; i<object.length; i++){
+    for(let i=0; i<object.length; i++){
+       
         
-    object[i].innerText=questions[questionIndex]["choix" + i];
+        object[i].innerText=questions[questionIndex]["choix" + i];
+    
+    }
+
+}
+
+showQuestion();
+
+
+
+function answerQuestion(){
+    
+
+
+   questions.splice(questions[questionIndex], 1);
+  
+   showQuestion();
+
+
+   
 
 }
 
