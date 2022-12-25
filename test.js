@@ -1,10 +1,14 @@
 
 const object=Array.from( document.getElementsByClassName('choix-text'));
 
+var questionNumber=document.getElementById('question-number');
+var questionConter=0;
+
+let availableQuestionA = [];
 
 
 
-let questions = [
+var questions = [
 
     {
         choix0 :"Why is AWS more economical than traditional data centers for applications with varying compute workloads?", 
@@ -39,40 +43,80 @@ let questions = [
 
 ]
 
-var questionIndex = Math.floor(Math.random() * questions.length);
-console.log(questionIndex);
+
+function availableQuestion(){
+    for(let i=0; i<questions.length ; i++){
+
+        availableQuestionA.push(questions[i]);
+        
+
+    }
+}
+
+
+
 
 
 
 function showQuestion(){
-    
-    
 
-    for(let i=0; i<object.length; i++){
-       
-        
-        object[i].innerText=questions[questionIndex]["choix" + i];
-    
-    }
+    availableQuestion();
+
+    getNewQuestion();
+
+
+
+
 
 }
 
-showQuestion();
+function getNewQuestion(){
+    questionNumber.innerHTML = 'Question' + (questionConter + 1) + 'of' + questions.length;
+    
+    
+    const questionIndex = availableQuestionA[Math.floor(Math.random() * availableQuestionA.length)];
+    console.log(Math.floor(Math.random() * availableQuestionA.length));
 
+    console.log(availableQuestionA);
+    
+    
+    
+    for(let i=0; i<object.length; i++){
+   
+    
+        object[i].innerText=questionIndex["choix" + i];
+    
+    }
+    const index1 = availableQuestionA.indexOf(questionIndex);
+    availableQuestionA.splice(index1, 1);
+    console.log(availableQuestionA);
+    // console.log(availableQuestionA.splice(index1, 1));
+    questionConter++;
+
+
+}
+
+
+  
 
 
 function answerQuestion(){
+
+    if(questionConter === questions.length){
+        return window.location.assign('end.html');
+    }else{
+
+        getNewQuestion();
+    }
+
     
-
-
-   questions.splice(questions[questionIndex], 1);
-  
-   showQuestion();
-
 
    
 
 }
+
+
+showQuestion();
 
 
   
