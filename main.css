@@ -83,4 +83,12 @@ h2 {
   box-shadow: 0 0.4rem 1.4rem 0 brown;
   transform: translateY(-0.1rem);
   transition: transform 150ms;
+}
+
+.addGreen {
+  background-color: green !important;
+}
+
+.addRed {
+  background-color: red !important;
 }/*# sourceMappingURL=main.css.map */

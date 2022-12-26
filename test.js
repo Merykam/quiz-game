@@ -8,6 +8,8 @@ let availableQuestionA = [];
 
 
 
+
+
 var questions = [
 
     {
@@ -26,7 +28,7 @@ var questions = [
         choix2 :"AWS Database Migration Service (AWS DMS)", 
         choix3 :"Amazon EC2", 
         choix4 :"Amazon AppStream 2.0",
-        answer : 1
+        answer : 3
 
 
     },
@@ -36,7 +38,7 @@ var questions = [
         choix2 :"AWS OpsWorks", 
         choix3 :"AWS SDK", 
         choix4 :"AWS Marketplace",
-        answer : 4
+        answer : 1
 
 
     },
@@ -70,14 +72,24 @@ function showQuestion(){
 
 }
 
+
+
 function getNewQuestion(){
+
     questionNumber.innerHTML = 'Question' + (questionConter + 1) + 'of' + questions.length;
     
     
-    const questionIndex = availableQuestionA[Math.floor(Math.random() * availableQuestionA.length)];
-    console.log(Math.floor(Math.random() * availableQuestionA.length));
+    questionIndex = availableQuestionA[Math.floor(Math.random() * availableQuestionA.length)];// id=2
+   
 
-    console.log(availableQuestionA);
+    // currentQ=questionIndex;
+
+    
+
+    // console.log(Object.keys(questionIndex)[1]);
+ 
+
+   
     
     
     
@@ -89,9 +101,13 @@ function getNewQuestion(){
     }
     const index1 = availableQuestionA.indexOf(questionIndex);
     availableQuestionA.splice(index1, 1);
-    console.log(availableQuestionA);
+
+   
+    // console.log(availableQuestionA);
     // console.log(availableQuestionA.splice(index1, 1));
     questionConter++;
+
+
 
 
 }
@@ -100,18 +116,47 @@ function getNewQuestion(){
   
 
 
-function answerQuestion(){
+function answerQuestion(option){
 
-    if(questionConter === questions.length){
-        return window.location.assign('end.html');
+
+    // const questionIndex = availableQuestionA[Math.floor(Math.random() * availableQuestionA.length)];
+
+
+
+    if(questionConter == questions.length){
+        return window.location.assign('highscores.html');
     }else{
+
+        if(option.id == questionIndex.answer){
+
+            option.classList.add("addGreen");
+            
+            console.log(option.classList.add("addGreen"));
+            
+            console.log("correct");
+           
+            
+        }else{
+            // console.log(option.id);
+            // console.log(questionIndex.answer);
+            
+            console.log("incorrect");
+            // console.log( option.classList.add("addGreen"));
+
+            option.classList.add("addRed");
+           
+           
+
+        }
+
+
+        
+
 
         getNewQuestion();
     }
 
-    
 
-   
 
 }
 
@@ -121,4 +166,20 @@ showQuestion();
 
   
 
+// function checkAnswer(){
+   
+//    for(let i=0; i<Object.keys(questionIndex).length; i++){
 
+//         if(questionIndex[answer] === Object.keys(questionIndex)[i]){
+
+
+
+//     }
+
+//    }
+
+   
+
+
+
+// }
