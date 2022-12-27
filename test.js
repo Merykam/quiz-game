@@ -3,8 +3,11 @@ const object=Array.from( document.getElementsByClassName('choix-text'));
 
 var questionNumber=document.getElementById('question-number');
 var questionConter=0;
+var fullProgress = document.querySelector('.full-progress');
+
 
 let availableQuestionA = [];
+var score = 0;
 
 
 
@@ -76,23 +79,20 @@ function showQuestion(){
 
 function getNewQuestion(){
 
-    questionNumber.innerHTML = 'Question' + (questionConter + 1) + 'of' + questions.length;
+    questionNumber.innerHTML = 'Question ' + (questionConter + 1) + ' / ' + questions.length;
+
+    fullProgress.style.width = `${(questionConter*100)/questions.length}%`;
+    
+    console.log((questionConter*100)/questions.length);
+    console.log(fullProgress.style.width);
+
+    if(questionConter == questions.length){
+        return window.location.assign('highscores.html');
+    }
     
     
     questionIndex = availableQuestionA[Math.floor(Math.random() * availableQuestionA.length)];// id=2
-   
 
-    // currentQ=questionIndex;
-
-    
-
-    // console.log(Object.keys(questionIndex)[1]);
- 
-
-   
-    
-    
-    
     for(let i=0; i<object.length; i++){
    
     
@@ -102,9 +102,6 @@ function getNewQuestion(){
     const index1 = availableQuestionA.indexOf(questionIndex);
     availableQuestionA.splice(index1, 1);
 
-   
-    // console.log(availableQuestionA);
-    // console.log(availableQuestionA.splice(index1, 1));
     questionConter++;
 
 
@@ -119,46 +116,50 @@ function getNewQuestion(){
 function answerQuestion(option){
 
 
-    // const questionIndex = availableQuestionA[Math.floor(Math.random() * availableQuestionA.length)];
-
-
-
-    if(questionConter == questions.length){
-        return window.location.assign('highscores.html');
-    }else{
-
         if(option.id == questionIndex.answer){
+            score += 10;
+            console.log(score);
 
-            option.classList.add("addGreen");
+
+
+           option.classList.add("addGreen");
+                
+           setTimeout ( () => {
+            option.classList.remove("addGreen");
+            getNewQuestion();
+
+           },1000);
             
-            console.log(option.classList.add("addGreen"));
             
-            console.log("correct");
            
             
         }else{
-            // console.log(option.id);
-            // console.log(questionIndex.answer);
             
-            console.log("incorrect");
-            // console.log( option.classList.add("addGreen"));
 
             option.classList.add("addRed");
            
+           setTimeout ( () => {
+            option.classList.remove("addRed");
+            getNewQuestion();
+
+           },1000);
+           
+
            
 
         }
+        
 
 
         
 
 
-        getNewQuestion();
+       
     }
 
 
 
-}
+
 
 
 showQuestion();

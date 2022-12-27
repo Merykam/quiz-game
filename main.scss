@@ -22,6 +22,7 @@ h1{
 .container{
 
    @include center-items;
+   // background-color: rgb(238, 190, 190);
    background-color: rgb(238, 190, 190);
    width: 100vw;
    height: 100vh;
@@ -29,12 +30,35 @@ h1{
    max-width: 80rem;
    margin: 0 auto;
    padding: 8rem;
+   .flex{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      .question-n{
+         font-size: large;
+         font-weight: bold;
+         color: brown;
+
+      }
+      .progress-bar{
+         border: 2px solid brown;
+         width: 8rem;
+         height: 2rem;
+         .full-progress{
+            background-color:brown ;
+            height: 100%;
+            width: 50%;
+         }
+      }
+   }
 }
 .flex-center{
    @include center-items;
-   background-color:rgb(238, 190, 190);
+   background-color:white;
+   border-radius: 4rem;
    box-shadow: 0 0.4rem 1.4rem 0 brown;
    padding: 50px;
+
    
 
 
@@ -79,7 +103,7 @@ h2{
 .display-flex{
    display: flex;
    background-color: white;
-   border: 1px solid brown;
+   border: 1.5px solid brown;
    margin-bottom: 1rem;
    padding: 1rem;
    border-radius: 1rem;
@@ -110,3 +134,107 @@ h2{
 .addRed{
    background-color: red !important;
 }
+
+.container2{
+   width: 100vw;
+   height: 100vh;
+   display: flex;
+   @include center-items;
+   background-color:  rgb(238, 190, 190);
+   
+   }
+   .card{
+      .scor{
+         width: 9rem;
+         height: 9rem;
+         border: 2px solid green;
+         border-radius: 50%;
+         display: flex;
+         @include center-items;
+         span{
+            font-size: 2rem;
+            font-weight: bold;
+
+         }
+         
+
+      }
+      .btnResult{
+         margin-top: 2rem;
+         a{
+          
+            text-decoration: none;
+            color: white;
+            background-color: rgb(231, 139, 139);
+            padding: 1rem;
+            border-radius: 1rem;
+            
+         }
+
+      }
+    
+
+      
+      
+
+      background-color: white;
+      width: 25rem;
+      height: 25rem;
+      border-radius: 4rem;
+      box-shadow: 0 0.4rem 1.4rem 0 brown;
+    
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+         h3{
+
+            margin-top: 1rem;
+            // font-weight: bold;
+            font-size: 1.5rem;
+            color: green;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            
+   
+         }
+         h5{
+            margin-top: 1rem;
+            font-size: 1rem;
+
+         }
+
+
+   }
+
+   .container3{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      @include center-items;
+      background-color:  rgb(238, 190, 190);
+      .card2{
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: auto auto;
+         
+      background-color: white;
+      width: 50rem;
+      height: 33rem;
+     
+      box-shadow: 0 0.4rem 1.4rem 0 brown;
+
+      h6{
+         font-size: 1.5rem;
+         color: brown;
+         
+      }
+      p{
+         font-size: large;
+      }
+    
+      
+      }
+
+   }
+   
+
