@@ -5,9 +5,16 @@ var questionNumber=document.getElementById('question-number');
 var questionConter=0;
 var fullProgress = document.querySelector('.full-progress');
 
+// var Mark= document.getElementById('Mark');
+// console.log(Mark);
+
 
 let availableQuestionA = [];
 var score = 0;
+
+var answerUser=[];
+var questionChoice=[];
+var RightAnswer=[];
 
 
 
@@ -21,7 +28,9 @@ var questions = [
         choix2 :"Users retain full administrative access to their Amazon EC2 instances.", 
         choix3 :"Amazon EC2 instances can be launched on demand when needed.", 
         choix4 :"Users can permanently run enough instances to handle peak workloads.",
-        answer : 2
+        answer : 2,
+        Right :"Users retain full administrative access to their Amazon EC2 instances."
+        
 
 
     },
@@ -31,7 +40,8 @@ var questions = [
         choix2 :"AWS Database Migration Service (AWS DMS)", 
         choix3 :"Amazon EC2", 
         choix4 :"Amazon AppStream 2.0",
-        answer : 3
+        answer : 3,
+        Right :"Amazon EC2"
 
 
     },
@@ -41,7 +51,8 @@ var questions = [
         choix2 :"AWS OpsWorks", 
         choix3 :"AWS SDK", 
         choix4 :"AWS Marketplace",
-        answer : 1
+        answer : 1,
+        Right :"AWS Config"
 
 
     },
@@ -82,9 +93,6 @@ function getNewQuestion(){
     questionNumber.innerHTML = 'Question ' + (questionConter + 1) + ' / ' + questions.length;
 
     fullProgress.style.width = `${(questionConter*100)/questions.length}%`;
-    
-    console.log((questionConter*100)/questions.length);
-    console.log(fullProgress.style.width);
 
     if(questionConter == questions.length){
         return window.location.assign('highscores.html');
@@ -117,7 +125,13 @@ function answerQuestion(option){
 
 
         if(option.id == questionIndex.answer){
+
             score += 10;
+            localStorage.setItem("score",score);
+            console.log( localStorage.getItem('score'));
+
+          
+
             console.log(score);
 
 
@@ -135,8 +149,38 @@ function answerQuestion(option){
             
         }else{
             
+            localStorage.setItem("score",score);
+            console.log( localStorage.getItem('score'));
+            
 
             option.classList.add("addRed");
+
+            //get info
+            
+           
+            answerUser.push(option.innerText);
+            console.log(answerUser);
+
+           
+            questionChoice.push(questionIndex.choix0);
+
+           
+            RightAnswer.push(questionIndex.Right);
+
+           
+
+
+            localStorage.setItem("answerUser",JSON.stringify(answerUser));
+            localStorage.setItem("Question",JSON.stringify(questionChoice));
+            localStorage.setItem("RightAnswer",JSON.stringify(RightAnswer));
+
+            //end info
+
+
+            // console.log(option.innerText);
+            // console.log(questionIndex.choix0);
+            // console.log(questionIndex.Right);
+            
            
            setTimeout ( () => {
             option.classList.remove("addRed");
