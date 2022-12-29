@@ -1,11 +1,15 @@
  @import './layout/global-rules';
 
+ @import url('https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap');
+
 h1{
-   font-family:  'Courier New', monospace;
-   font-size: 5.4rem;
+   // font-family:  'Courier New', monospace;
+   font-size:  6rem;
    font-weight: bold;
    color: brown;
-   text-shadow: 0.2rem 0.4rem  rgb(111, 42, 42);
+   text-shadow: 0.2rem 0.4rem  rgb(229, 138, 138);
+   font-family: 'Rubik Vinyl', 'cursive';
+
    // margin-bottom: 5rem;
 }
 @mixin center-items{

@@ -125,6 +125,7 @@ function answerQuestion(option){
 
 
         if(option.id == questionIndex.answer){
+            
 
             score += 10;
             localStorage.setItem("score",score);
